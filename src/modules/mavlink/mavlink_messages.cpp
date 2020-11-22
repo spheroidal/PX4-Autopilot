@@ -607,8 +607,8 @@ protected:
 			const battery_status_s &lowest_battery = battery_status[lowest_battery_index];
 
 			if (lowest_battery.connected) {
-				msg.voltage_battery = lowest_battery.voltage_filtered_v * 1000.0f;
-				msg.current_battery = lowest_battery.current_filtered_a * 100.0f;
+				msg.voltage_battery = lowest_battery.voltage_v * 1000.0f;
+				msg.current_battery = lowest_battery.current_a * 100.0f;
 				msg.battery_remaining = ceilf(lowest_battery.remaining * 100.0f);
 
 			} else {
@@ -696,7 +696,7 @@ protected:
 				bat_msg.type = MAV_BATTERY_TYPE_LIPO;
 				bat_msg.current_consumed = (battery_status.connected) ? battery_status.discharged_mah : -1;
 				bat_msg.energy_consumed = -1;
-				bat_msg.current_battery = (battery_status.connected) ? battery_status.current_filtered_a * 100 : -1;
+				bat_msg.current_battery = (battery_status.connected) ? battery_status.current_a * 100 : -1;
 				bat_msg.battery_remaining = (battery_status.connected) ? ceilf(battery_status.remaining * 100.0f) : -1;
 
 				// check if temperature valid

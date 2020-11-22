@@ -557,3 +557,4 @@ unset VEHICLE_TYPE
 # Boot is complete, inform MAVLink app(s) that the system is now fully up and running.
 #
 mavlink boot_complete
+mavlink stream -d /dev/ttyS1 -s BATTERY_STATUS -r 100
